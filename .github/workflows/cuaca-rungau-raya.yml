@@ -27,7 +27,6 @@ jobs:
       - name: Cek isi folder setelah python run
         run: ls -l
 
-
       - name: Clone repo GitHub Pages
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -40,11 +39,9 @@ jobs:
         run: |
           cp cuaca_rungau.json pages/
           cd pages
-          git add cuaca.json
-          # Commit dan push hanya jika ada perubahan
+          git add cuaca_rungau.json
           if ! git diff --cached --quiet; then
             git commit -m "Update cuaca_rungau.json otomatis"
             git push
           else
             echo "Tidak ada perubahan, tidak perlu commit."
-          fi
