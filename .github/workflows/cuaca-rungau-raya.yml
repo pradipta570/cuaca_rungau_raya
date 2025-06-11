@@ -1,4 +1,4 @@
-name: Update Cuaca Rungau (JSON)
+name: Update Cuaca RUNGAU (JSON)
 
 on:
   schedule:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo cuaca-rungau
+      - name: Checkout repo cuaca-bmkg
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -21,11 +21,11 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Jalankan script update cuaca
+      - name: Jalankan skrip Python untuk update cuaca_rungau.json
         run: python update_cuaca_rungau.py
 
-      - name: Cek isi file JSON
-        run: cat cuaca_rungau.json
+      - name: Cek isi folder setelah Python jalan
+        run: ls -l
 
       - name: Clone repo GitHub Pages
         env:
@@ -36,14 +36,13 @@ jobs:
           git clone https://x-access-token:${GH_TOKEN}@github.com/pradipta570/pradipta570.github.io.git pages
 
       - name: Copy dan commit ke GitHub Pages
-  run: |
-    cp cuaca_rungau.json pages/
-    cd pages
-    git add cuaca_rungau.json
-    if ! git diff --cached --quiet; then
-      git commit -m "Update cuaca_rungau.json otomatis"
-      git push
-    else
-      echo "Tidak ada perubahan, tidak perlu commit."
-    fi
-
+        run: |
+          cp cuaca_rungau.json pages/
+          cd pages
+          git add cuaca_rungau.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update cuaca_rungau.json otomatis"
+            git push
+          else
+            echo "Tidak ada perubahan, tidak perlu commit."
+          fi
