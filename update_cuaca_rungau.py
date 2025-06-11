@@ -25,9 +25,16 @@ def ambil_prakiraan():
         cuaca2 = hari_besok['Day']['IconPhrase']
         suhu_max2 = int(hari_besok['Temperature']['Maximum']['Value'])
 
+        # Format sebagai JSON
         data = {
-            "hari_ini": {"cuaca": cuaca1, "suhu": suhu_max1},
-            "besok": {"cuaca": cuaca2, "suhu": suhu_max2}
+            "hari_ini": {
+                "cuaca": cuaca1,
+                "suhu": suhu_max1
+            },
+            "besok": {
+                "cuaca": cuaca2,
+                "suhu": suhu_max2
+            }
         }
 
         with open("cuaca_rungau.json", "w", encoding="utf-8") as f:
