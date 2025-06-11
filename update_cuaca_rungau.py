@@ -2,7 +2,7 @@ import requests
 import json
 
 API_KEY = "12ReKcABuIhvdekriuJCz4FBXcU0mX7L"  # Ganti dengan API key kamu
-LOCATION_KEY = "203001"  # Kedungtuban, Blora
+LOCATION_KEY = "3474154"  # Rungau Raya
 BASE_URL = "http://dataservice.accuweather.com"
 
 def ambil_prakiraan():
@@ -38,7 +38,7 @@ def ambil_prakiraan():
         }
 
         # Simpan sebagai file JSON
-        with open("cuaca.json", "w", encoding="utf-8") as f:
+        with open("cuaca_rungau.json", "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
         print("✅ cuaca.json berhasil diperbarui.")
