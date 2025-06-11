@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo cuaca-bmkg
+      - name: Checkout repo cuaca_rungau_raya
         uses: actions/checkout@v3
 
       - name: Setup Python
