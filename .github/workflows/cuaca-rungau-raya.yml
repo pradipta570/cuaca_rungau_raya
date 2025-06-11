@@ -36,12 +36,13 @@ jobs:
           git clone https://x-access-token:${GH_TOKEN}@github.com/pradipta570/pradipta570.github.io.git pages
 
       - name: Copy dan commit update cuaca_rungau.json jika ada perubahan
-        run: |
-          cp cuaca_rungau.json pages/
-          cd pages
-          git add cuaca_rungau.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Update cuaca_rungau.json otomatis"
-            git push
-          else
-            echo "Tidak ada perubahan, tidak perlu commit."
+  run: |
+    cp cuaca_rungau.json pages/
+    cd pages
+    git add cuaca_rungau.json
+    if ! git diff --cached --quiet; then
+      git commit -m "Update cuaca_rungau.json otomatis"
+      git push
+    else
+      echo "Tidak ada perubahan, tidak perlu commit."
+    fi
