@@ -35,14 +35,15 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone https://x-access-token:${GH_TOKEN}@github.com/pradipta570/pradipta570.github.io.git pages
 
-      - name: Copy dan commit cuaca_rungau.json jika berubah
-        run: |
-        cp cuaca_rungau.json pages/
-        cd pages
-        git add cuaca_rungau.json
-        if ! git diff --cached --quiet; then
-        git commit -m "Update cuaca_rungau.json otomatis"
-        git push
-        else
-        echo "Tidak ada perubahan, tidak perlu commit."
-        fi
+      - name: Copy dan commit ke GitHub Pages
+  run: |
+    cp cuaca_rungau.json pages/
+    cd pages
+    git add cuaca_rungau.json
+    if ! git diff --cached --quiet; then
+      git commit -m "Update cuaca_rungau.json otomatis"
+      git push
+    else
+      echo "Tidak ada perubahan, tidak perlu commit."
+    fi
+
