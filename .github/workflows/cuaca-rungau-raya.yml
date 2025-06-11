@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Jalankan skrip Python untuk update cuaca.txt
+      - name: Jalankan skrip Python untuk update cuaca_rungau.txt
         run: python update_cuaca_rungau.py
 
       - name: Cek isi folder setelah python run
